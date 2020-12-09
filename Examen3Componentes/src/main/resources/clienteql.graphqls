@@ -1,0 +1,26 @@
+type Cliente {
+    id: ID!,
+    nombreCliente: String,
+    apellidoCliente: String,
+    direccionCliente: String,
+    direccionCobro: String,
+    numeroTarjeta: String,
+    anioVencimiento: String,
+    mesVencimiento: String
+
+
+}
+type Query{
+    clientes(apellidoCliente:String, direccionCobro:String):[Cliente]
+    cliente(id: ID):Cliente
+}
+
+type Mutation {
+    createCliente(nombreCliente:String!, apellidoCliente:String!, direccionCliente:String!,
+        direccionCobro:String!,  numeroTarjeta:String!, anioVencimiento: String!,
+        mesVencimiento: String!):Cliente
+    updateCliente(nombreCliente:String!, apellidoCliente:String!, direccionCliente:String!,
+        direccionCobro:String!,  numeroTarjeta:String!, anioVencimiento: String!,
+        mesVencimiento: String!, id: String!):Cliente
+    deleteCliente(id: String!):String
+}
